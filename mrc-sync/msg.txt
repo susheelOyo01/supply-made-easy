@@ -1,0 +1,69 @@
+{
+  "oyo_id": "LNL333",
+  "property_id": "PROPERTY_79ae7e79-83b4-491c-b9cb-5675e4f91ca7",
+  "sub_property_type": "Hotel",
+  "state": "Transformation",
+  "sub_property_id": "HOTEL_c2068721-a573-422f-a7c8-3131da104d14",
+  "contract": [
+    {
+      "early_checkin_host_share": 0,
+      "late_checkout_host_share": 0,
+      "contract_slabs": [
+        {
+          "valid_from_date": "2025-05-07",
+          "valid_till": "2026-05-06",
+          "valid_from": "2025-05-07",
+          "rooms": 20,
+          "mg_rooms": 600,
+          "default_rooms": 20,
+          "agreement_type": "Auto-Pilot",
+          "mg_amount": 0,
+          "rs_slabs": {
+            "0": 73
+          },
+          "penalty_percent": 0,
+          "waiver_percentages": {},
+          "room_category_array": [
+            {
+              "rooms": 20,
+              "default_rooms": 20,
+              "black_sellable_rooms": 0,
+              "green_rooms": 20,
+              "yellow_rooms": 0,
+              "black_rooms": 0,
+              "category_code": "standard",
+              "category_name": "Classic"
+            }
+          ],
+          "cms_id": 414157,
+          "platform_fees": 0,
+          "hardware_capex": 0,
+          "branding_cost": 0,
+          "total_tr_expenditure": 0,
+          "is_oyo_secure_deal": true,
+          "oyo_secure_deal_amount": 0,
+          "oyo_secure_threshold_amount": 2000,
+          "oyo_secure_deal_amount_future": 0,
+          "oyo_secure_block_days": 7,
+          "is_crystal_deal": true,
+          "is_flexi_deal": false,
+          "disable_future_agreements": true,
+          "is_belvilla": false,
+          "is_self_onboarding": true
+        }
+      ],
+      "owner_code": "MAPPING_CODE_5f2c7260-a519-4f5c-b287-c8b014400558",
+      "contract_type": "Primary"
+    }
+  ],
+  "meal_plan_details": [],
+  "checkin_checkout_details": [],
+  "contract_sign_mode": "Online",
+  "start_date": "2025-05-07",
+  "end_date": "2026-05-06",
+  "purpose_of_lead": "Onboarding A New Property",
+  "pta_triggered": false,
+  "loan_agreement_details": [],
+  "is_cib_sync": false,
+  "contracted_rooms": 20
+}
