@@ -24,6 +24,6 @@ const hitAndClear = async(property_id)=>{
 
 
 
-const property_id = 2
+const property_id = 303044
 
 hitAndClear(property_id)
