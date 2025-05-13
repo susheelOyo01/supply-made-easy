@@ -1,0 +1,25 @@
+{
+  "name": "automated-apis",
+  "version": "1.0.0",
+  "description": "- Clone the repo. <git clone https://github.com/susheeloyo01/supply-api-made-easy>\r - Go to a particular folder eg:<cd mrc-sync>\r - Make sure that you have node.js installed in your laptop.\r - Open index.js, their is a commented section where you have to use some variables like oyo_id, property_id etc, fill it.\r - Run <node index.js>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/susheelOyo01/supply-api-made-easy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/susheelOyo01/supply-api-made-easy/issues"
+  },
+  "homepage": "https://github.com/susheelOyo01/supply-api-made-easy#readme",
+  "dependencies": {
+    "axios": "^1.9.0",
+    "dotenv": "^16.5.0",
+    "pg": "^8.16.0"
+  }
+}
