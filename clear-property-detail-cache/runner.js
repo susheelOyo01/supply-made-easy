@@ -53,7 +53,7 @@ const hitAndClear = async(property_list)=>{
 }
 
 
-// .input list section
+// -----------------------------input list section----------------------------------
 try {
     const propertyListContent = fs.readFileSync('./property_list.txt', 'utf8')
     const property_list = propertyListContent.split('\n')
