@@ -33,10 +33,10 @@ const onceHitForfiet = async (contractId, oyo_id, property_id) =>{
     }
 }
 
+//---------------------- input section-------------------------------------
 
-
-const contractId = "PC-c03b0c9e-e2af-4d69-a244-0c82f59d67e8";
-const oyo_id="LNL333"
-const property_id="PROPERTY_79ae7e79-83b4-491c-b9cb-5675e4f91ca7"
+const contractId = "PC-977d7ee6-8c95-4824-9ba7-99ec2bd61f29";
+const oyo_id="UAE_DUB945"
+const property_id="PROPERTY_4503d1b0-c2d8-432f-8d69-75760110da96"
 
 onceHitForfiet(contractId, oyo_id, property_id)
