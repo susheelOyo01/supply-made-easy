@@ -6,11 +6,11 @@ dotenv.config()
 
 //db connection 
 const db = new pg.Client({
-    user: process.env.DB_USER,
-    host: process.env.DB_HOST,
-    database: process.env.DB_NAME,
-    password: process.env.DB_PASSWORD,
-    port: process.env.DB_PORT,
+    user: process.env.CAMS_DB_USER,
+    host: process.env.CAMS_DB_HOST,
+    database: process.env.CAMS_DB_NAME,
+    password: process.env.CAMS_DB_PASSWORD,
+    port: process.env.CAMS_DB_PORT,
 })
 db.connect()
 
@@ -78,21 +78,18 @@ const room_dimension = 209  // Example dimension value
 // Main execution function
 const main = async () => {
     try {
-        // Get property details
         const [property_id, country] = await getTheCrsId(oyo_id);
         if (!property_id || !country) {
             console.log('Failed to get property details');
             return;
         }
 
-        // Get room category ID
         const room_category_id = await getRoomCategoryId(room_category_name, country);
         if (!room_category_id) {
             console.log('Failed to get room category ID');
             return;
         }
 
-        // Update room dimension
         const updateSuccess = await updateTheRoomDimension(property_id, room_category_id, room_dimension);
         if (!updateSuccess) {
             console.log('Failed to update room dimension');
@@ -103,7 +100,6 @@ const main = async () => {
     } catch (error) {
         console.log('Error in main execution:', error);
     } finally {
-        // Close database connection
         await db.end();
     }
 }
