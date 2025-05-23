@@ -1,5 +1,6 @@
 import pg from 'pg'
 import dotenv from 'dotenv'
+import { getRoomCategoryId, getTheCrsId } from './utils/camsHelper.js'
 
 // Load environment variables
 dotenv.config()
@@ -14,34 +15,7 @@ const db = new pg.Client({
 })
 db.connect()
 
-// apis 
 
-/// function to get the crs id  and country name
-const getTheCrsId = async(oyo_id)=>{
-    try {
-        const response = await db.query('SELECT * FROM property where oyo_id = $1', [oyo_id]);
-        console.log(response.rows[0]?.property_id, response.rows[0]?.country)
-        return [response.rows[0]?.property_id, response.rows[0]?.country];
-    } catch (error) {
-        console.log(error)
-        return [null, null];
-    }
-}
-
-// function to get room_category_id according to country
-const getRoomCategoryId = async(room_category_name, country)=>{
-    try {
-        const response = await db.query(
-            "SELECT * FROM room_categories where name ilike $1 and code ilike $2", 
-            [room_category_name, `%${country}%`]
-        );
-        console.log(response.rows[0]?.id);
-        return response.rows[0]?.id;
-    } catch (error) {
-        console.log(error)
-        return null;
-    }
-}
 
 /// final function to update room_dimension
 const updateTheRoomDimension = async(property_id, room_category_id, room_dimension)=>{
@@ -78,7 +52,10 @@ const room_dimension = 209  // Example dimension value
 // Main execution function
 const main = async () => {
     try {
-        const [property_id, country] = await getTheCrsId(oyo_id);
+        const res = await getTheCrsId(oyo_id);
+        console.log(res)
+        const property_id = res?.property_id
+        const country =  res?.country;
         if (!property_id || !country) {
             console.log('Failed to get property details');
             return;
