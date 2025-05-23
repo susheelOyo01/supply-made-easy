@@ -34,6 +34,9 @@ root/
 - Database connection details and related logic should be placed in the `Database_details/` directory.
 - This structure ensures that all scripts can easily import and use shared functions, reducing code duplication and improving maintainability.
 
+# Got a flaw in room_dimension_update code the code is not containing the country name so we cant search from country name or code in room-category table case  
+-| Fixed - joined two tables room-category-amenity-list which contains property id with all room-category id and room-categories with name and room-category joined the tables to get a single id and done!
+
 ## Next Steps for Automation
 
 - **Automate property publish failure status update:**
@@ -41,5 +44,8 @@ root/
 - **Contact Page Automation:**
   - For contacts that are verified but have no details, set `substatus` to `1` and update the number and email fields accordingly.
 
--- **Mark Images Inactive:**
+- [x] **Mark Images Inactive:**
   - Mark image priority as inactive
+  - Status: Completed ✅
+  - Implementation: `inactive_crs_images.js`
+

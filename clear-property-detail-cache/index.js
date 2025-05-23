@@ -1,7 +1,7 @@
 import axios from "axios"
 
 
-const hitAndClear = async(property_id)=>{
+export const hitAndClear = async(property_id)=>{
     try {
         const response = await axios.get(`http://zp-cams-async-api-1.supply.internal.oyorooms.io/test/clear-property-details-cache?hotel_ids=${property_id}`, {
             headers: {

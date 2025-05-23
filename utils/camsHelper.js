@@ -21,16 +21,21 @@ export const getTheCrsId = async(oyo_id)=>{
     }
 }
 
-export const getRoomCategoryId = async(room_category_name, country)=>{
+export const getRoomCategoryId = async(property_id, room_category_name)=>{
     try {
         const response = await db.query(
-            "SELECT * FROM room_categories where name ilike $1 and code ilike $2", 
-            [room_category_name, `%${country}%`]
+            `SELECT rc.id 
+             FROM property_room_category_amenity_lists prcal
+             JOIN room_categories rc ON prcal.room_category_id = rc.id
+             WHERE prcal.property_id = $1 
+             AND rc.name ILIKE $2`,
+            [property_id, `%${room_category_name}%`]
         );
-        console.log(response.rows[0]?.id);
+        
+        console.log(response.rows[0]?.id)
         return response.rows[0]?.id;
     } catch (error) {
-        console.log(error)
+        console.log("Error in getRoomCategoryId:", error);
         return null;
     }
 }

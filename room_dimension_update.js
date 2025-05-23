@@ -1,6 +1,7 @@
 import pg from 'pg'
 import dotenv from 'dotenv'
 import { getRoomCategoryId, getTheCrsId } from './utils/camsHelper.js'
+import { hitAndClear } from './clear-property-detail-cache/index.js'
 
 // Load environment variables
 dotenv.config()
@@ -45,9 +46,9 @@ const updateTheRoomDimension = async(property_id, room_category_id, room_dimensi
 
 /////-----------------Input section-------------------------------
 
-const oyo_id = 'UAE_FJR009'
-const room_category_name = 'deluxe queen'
-const room_dimension = 209  // Example dimension value
+const oyo_id = 'UAE_DUB936'
+const room_category_name = 'Standard One Bedroom apartment'
+const room_dimension = 118  
 
 // Main execution function
 const main = async () => {
@@ -61,7 +62,7 @@ const main = async () => {
             return;
         }
 
-        const room_category_id = await getRoomCategoryId(room_category_name, country);
+        const room_category_id = await getRoomCategoryId(property_id, room_category_name);
         if (!room_category_id) {
             console.log('Failed to get room category ID');
             return;
@@ -72,7 +73,9 @@ const main = async () => {
             console.log('Failed to update room dimension');
             return;
         }
-
+        console.log("Clearing cache.....")
+        const updateOnUi = await hitAndClear(property_id);
+        console.log("Cache Cleared!!!")
         console.log('All operations completed successfully');
     } catch (error) {
         console.log('Error in main execution:', error);
