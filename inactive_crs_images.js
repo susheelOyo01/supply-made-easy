@@ -41,8 +41,8 @@ const updateTheImagePriority = async(property_id, priority)=>{
 }
 
 //---------------- input section -------------------
-const oyo_id = 'AHM254'
-const priority = 3002
+const oyo_id = 'REW219'
+const priority = 32451
 
 // main function call
 const main = async()=>{

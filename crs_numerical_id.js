@@ -1,7 +1,7 @@
 import { getTheCrsId } from "./utils/camsHelper.js"
 
 // ---------------- input section---------------
-const oyo_id = 'UAE_DUB936'
+const oyo_id = 'KOL069'
 
 
 
