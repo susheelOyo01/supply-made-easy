@@ -39,3 +39,4 @@ export const getRoomCategoryId = async(property_id, room_category_name)=>{
         return null;
     }
 }
+
