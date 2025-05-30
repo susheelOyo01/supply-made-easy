@@ -4,12 +4,10 @@ const checkIfRsError = async (leadId) => {
     try {
         const res = await axios.get(`http://poms.supply.oyorooms.io/api/v1/leads/sync_crs?lead_id=${leadId}`, {
             headers: {
-                'access_token': "WXFubXJkYjljZHcyV3pCb04xZHk6dEFzNFBmd3g1dHJVZFZ6VFEtLXo6c3NvSWRUbGRWTlU1dFRUSlpWRWwwV1ZkT2FGcHBNREJaVkU1clRGZEdhRTlYUlhSYWJVbDZUVVJPYTA1VVdtcE9lbXhw"
+                'access_token': "WXFubXJkYjljZHcyV3pCb04xZHk6dEFzNFBmd3g1dHJVZFZ6VFEtLXo6c3NvSWRUVlJOZVU1NlNURk9WMWwwV21wTk5WcHBNREJPTWswelRGUnJORnBYVlhST1Iwa3lXVEpGTVU5RVdtaFBWRUUw"
             }
         })
-        console.log('Response:', res.data?.status)
-        console.log('Response:', res.data?.success)
-        console.log('Response:', res.data?.error?.message)
+        console.log('Response:', res.data)
 
         return res.data
     } catch (error) {

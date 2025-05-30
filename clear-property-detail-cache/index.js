@@ -24,6 +24,6 @@ export const hitAndClear = async(property_id)=>{
 
 
 
-const property_id = 244078
+const property_id = 304938
 
 hitAndClear(property_id)

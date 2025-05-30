@@ -14,13 +14,12 @@ db.connect()
 export const getTheCrsId = async(oyo_id)=>{
     try {
         const response = await db.query('SELECT * FROM property where oyo_id = $1', [oyo_id])
-        return response.rows[0]
+        return response.rows[0]?.property_id
     } catch (error) {
         console.log(error)
         return null
     }
 }
-
 export const getRoomCategoryId = async(property_id, room_category_name)=>{
     try {
         const response = await db.query(

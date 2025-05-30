@@ -1,7 +1,7 @@
 import pg from 'pg'
 import dotenv from 'dotenv'
-import { getRoomCategoryId, getTheCrsId } from './utils/camsHelper.js'
-import { hitAndClear } from './clear-property-detail-cache/index.js'
+import { getRoomCategoryId, getTheCrsId } from '../utils/camsHelper.js'
+import { hitAndClear } from '../clear-property-detail-cache/index.js'
 
 // Load environment variables
 dotenv.config()
@@ -19,7 +19,7 @@ db.connect()
 
 
 /// final function to update room_dimension
-const updateTheRoomDimension = async(property_id, room_category_id, room_dimension)=>{
+export const updateTheRoomDimension = async(property_id, room_category_id, room_dimension)=>{
     try {
         const response = await db.query(`SELECT * FROM property_room_category_amenity_lists where property_id=$1 and room_category_id=$2`, [property_id, room_category_id]);
         console.log("The initial value of the dimension column is : ", response.rows[0]?.dimension)
