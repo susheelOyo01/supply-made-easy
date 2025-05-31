@@ -45,7 +45,7 @@ export const dbContractUpdate = async(property_id, inputPdfPath) => {
         );
 
         const res = await db.query(
-            "UPDATE property_contracts SET contract_link = $1 WHERE property_code = $2 RETURNING *",
+            "UPDATE property_contracts SET document_link = $1 WHERE property_code = $2 RETURNING *",
             [contractUrl, property_id]
         );
 

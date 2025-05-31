@@ -49,3 +49,5 @@ root/
   - Status: Completed ✅
   - Implementation: `inactive_crs_images.js`
 
+# Automating contract update
+- Find the easy way to find the latest contact id.

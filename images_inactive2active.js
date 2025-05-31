@@ -15,7 +15,7 @@ db.connect()
 const updateTheImagePriority = async(property_id, priority)=>{
     try {
         const response = await db.query(
-            `SELECT count(*) FROM property_images WHERE property_id=$1 AND priority=$2 AND status=1`,
+            `SELECT count(*) FROM property_images WHERE property_id=$1 AND priority=$2 AND status=0`,
             [property_id, priority]
         );
         console.log(response.rows[0]?.count)
@@ -26,8 +26,8 @@ const updateTheImagePriority = async(property_id, priority)=>{
 
         const updateResponse = await db.query(
             `UPDATE property_images 
-             SET status = 0 
-             WHERE property_id=$1 AND priority=$2 AND status=1 
+             SET status = 1 
+             WHERE property_id=$1 AND priority=$2 AND status=0 
              RETURNING *`,
             [property_id, priority]
         );
@@ -41,24 +41,27 @@ const updateTheImagePriority = async(property_id, priority)=>{
 }
 
 //---------------- input section -------------------
-const oyo_id = 'AZM044'
-const priority = 1509
+const oyo_id = 'SRT321'
+const priority = [30529,36572,1689 ,30492 ,30601 ,1745 ]
+
 
 // main function call
 const main = async()=>{
     try {
-        const id = await getTheCrsId(oyo_id)
-        const property_id = id
-        if(!property_id){
-            console.log("Property not found")
-            return
-        }
-        const res = await updateTheImagePriority(property_id, priority)
-        if (res) {
-            console.log("Successfully updated image priority")
+        for(let i = 0; i< priority.length; i++){
+            const id = await getTheCrsId(oyo_id)
+            const property_id = id
+            if(!property_id){
+                console.log("Property not found")
+                return
+            }
+            const res = await updateTheImagePriority(property_id, priority[i])
+            if (res) {
+                console.log(`Successfully updated image priority ${priority[i]}`)
+            }
         }
     } catch (error) {
-        console.log(error)
+        console.log("Error in main function:", error)
     } finally {
         await db.end()
     }
