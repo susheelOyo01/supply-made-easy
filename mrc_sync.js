@@ -16,6 +16,7 @@ db.connect()
 const getPropertyId = async(oyo_id)=>{
     try {
         const response = await db.query('SELECT * FROM leads where existing_oyo_oyoid=$1',[oyo_id])
+        // console.log(response.rows[0])
         console.log(response.rows[0]?.property_id, response.rows[0]?.metadata.contract_id);
         return [response.rows[0]?.property_id, response.rows[0]?.metadata.contract_id];
     } catch (error) {
@@ -56,7 +57,7 @@ const onceHitForfiet = async (contractId, oyo_id, property_id) =>{
 }
 
 //---------------------- input section-------------------------------------
-const oyo_id="SA_JDH154"
+const oyo_id="EN_CRW004"
 
 
 

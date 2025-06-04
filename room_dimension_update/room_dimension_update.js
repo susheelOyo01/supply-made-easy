@@ -46,18 +46,17 @@ export const updateTheRoomDimension = async(property_id, room_category_id, room_
 
 /////-----------------Input section-------------------------------
 
-const oyo_id = 'UAE_DUB936'
-const room_category_name = 'Standard One Bedroom apartment'
-const room_dimension = 118  
+const oyo_id = 'KOL3228'
+const room_category_name = 'Classic'
+const room_dimension = 100  
 
 // Main execution function
 const main = async () => {
     try {
         const res = await getTheCrsId(oyo_id);
         console.log(res)
-        const property_id = res?.property_id
-        const country =  res?.country;
-        if (!property_id || !country) {
+        const property_id = await res
+        if (!property_id) {
             console.log('Failed to get property details');
             return;
         }

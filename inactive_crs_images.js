@@ -41,24 +41,27 @@ const updateTheImagePriority = async(property_id, priority)=>{
 }
 
 //---------------- input section -------------------
-const oyo_id = 'AZM044'
-const priority = 1509
+const oyo_id = 'BTI057'
+const priority = [30712,29395,29464 ,29439 ,30712]
+
 
 // main function call
 const main = async()=>{
     try {
-        const id = await getTheCrsId(oyo_id)
-        const property_id = id
-        if(!property_id){
-            console.log("Property not found")
-            return
-        }
-        const res = await updateTheImagePriority(property_id, priority)
-        if (res) {
-            console.log("Successfully updated image priority")
+        for(let i = 0; i< priority.length; i++){
+            const id = await getTheCrsId(oyo_id)
+            const property_id = id
+            if(!property_id){
+                console.log("Property not found")
+                return
+            }
+            const res = await updateTheImagePriority(property_id, priority[i])
+            if (res) {
+                console.log(`Successfully updated image priority ${priority[i]}`)
+            }
         }
     } catch (error) {
-        console.log(error)
+        console.log("Error in main function:", error)
     } finally {
         await db.end()
     }

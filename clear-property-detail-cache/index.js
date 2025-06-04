@@ -24,7 +24,3 @@ export const hitAndClear = async(property_id)=>{
 
 
 
-const property_id = 
-
-
-hitAndClear(property_id)

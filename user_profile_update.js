@@ -78,8 +78,8 @@ const updateTheProfile = async(userProfileId,type, typeValue)=>{
     }
 }
 
-const type= "email"
-const typeValue="laxmangrandhotel@gmail.com"
-const userProfileId=166082535
+const type= "phone"
+const typeValue="7258986668"
+const userProfileId=161041302
 
 updateTheProfile(userProfileId,type,typeValue);
